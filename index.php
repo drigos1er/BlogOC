@@ -1,5 +1,14 @@
 <?php
 
 require('calltwig.php');
+require('controller/controller.php');
 
-echo $twig->render('frontend/home.html.twig');
+if (isset($_GET['key'])) {
+    if ($_GET['key'] == 'login') {
+        login();
+    }
+
+}
+else {
+    home();
+}
