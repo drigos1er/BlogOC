@@ -18,5 +18,11 @@ if($pkey==='index') {
     $index->home();
 
 
+}elseif($pkey=='login'){
+    $login= new \Blog\controller\LoginController();
+    $login->login();
+
+}else{
+
 }
 
