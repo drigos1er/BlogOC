@@ -15,14 +15,6 @@ class IndexController
     protected $twig;
 
     public function __construct() {
-  /**      require_once "F:\PROJETS\htdocs\BLOGOCR\BlogOC\core\Connexion.php";
-
-
-
-
-        $this->conecct=new \Connexion();
-        $this->conexion=$this->connect->conexion();/*/
-
         $loader = new Twig_Loader_Filesystem('src/view');
         $this->twig = new Twig_Environment($loader, array('debug' => false));
 
