@@ -15,8 +15,6 @@ class IndexController
     protected $twig;
 
     public function __construct() {
-
-
         $loader = new Twig_Loader_Filesystem('src/view');
         $this->twig = new Twig_Environment($loader, array('debug' => false));
 
