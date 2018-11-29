@@ -1,5 +1,28 @@
 <?php
 
-require('calltwig.php');
+require ('vendor/autoload.php');
 
-echo $twig->render('frontend/home.html.twig');
+
+
+
+if (isset($_GET['key'])) {
+    $pkey=$_GET['key'];
+
+}
+else {
+    $pkey="index";
+}
+
+if($pkey==='index') {
+    $index = new Blog\controller\HomeController();
+    $index->home();
+
+
+}elseif($pkey=='login'){
+    $login= new \Blog\controller\LoginController();
+    $login->login();
+
+}else{
+
+}
+
