@@ -1,14 +1,21 @@
 <?php
 
-require('calltwig.php');
-require('controller/controller.php');
+require ('vendor/autoload.php');
+
+
+
 
 if (isset($_GET['key'])) {
-    if ($_GET['key'] == 'login') {
-        login();
-    }
+    $pkey=$_GET['key'];
 
 }
 else {
-    home();
+    $pkey="index";
+}
+
+if($pkey==='index') {
+    $index = new Blog\controller\HomeController();
+    $index->home();
+
+
 }
