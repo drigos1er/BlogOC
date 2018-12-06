@@ -14,6 +14,14 @@ class LoginController extends IndexController
     }
 
 
+    public function register()
+    {
 
+
+
+        echo $this->twig->render('register.html.twig');
+
+
+    }
 
 }

@@ -1,6 +1,5 @@
 <?php
-
-
+require ('./core/Connexion.php');
 class Config
 {
 

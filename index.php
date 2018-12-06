@@ -4,7 +4,6 @@ require ('vendor/autoload.php');
 
 
 
-
 if (isset($_GET['key'])) {
     $pkey=$_GET['key'];
 
@@ -22,7 +21,17 @@ if($pkey==='index') {
     $login= new \Blog\controller\LoginController();
     $login->login();
 
-}else{
+}elseif($pkey=='register'){
+
+    $login= new \Blog\controller\LoginController();
+    $login->register();
+
+}
+
+
+
+
+else{
 
 }
 
