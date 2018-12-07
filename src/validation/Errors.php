@@ -1,11 +1,11 @@
 <?php
-
+namespace Blog\validation;
 
 class Errors
 {
 
     private $info;
-    private $errors;
+    private $errors=[];
 
     public function __construct($info)
     {
@@ -40,7 +40,7 @@ class Errors
 
     public function isEmail($field,$errorMsg){
 
-        if(!filter_var([$this->getField($field)],FILTER_VALIDATE_EMAIL)){
+        if(!filter_var($this->getField($field),FILTER_VALIDATE_EMAIL)){
 
             $this->errors[$field]=$errorMsg;
         }
@@ -58,6 +58,30 @@ class Errors
 
 
     }
+
+    public function isValidator(){
+
+
+
+          return empty($this->errors);
+
+
+
+    }
+
+    public function getErrors(){
+
+
+
+        return $this->errors;
+
+
+
+    }
+
+
+
+
 
 
 }
