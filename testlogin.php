@@ -2,15 +2,18 @@
 
 require ('vendor/autoload.php');
 
-require ('config/Config.php');
-
-
+$db=Config::getCdb();
 
     if(!empty($_POST)){
         $errors=array();
-        $db=Config::getCdb();
+
         $valid= new \Blog\validation\Errors($_POST);
-        $valid->isUniq('username',$db,'users','Ce Pseudo est dejà utilisé par un autre utilisateur');
+        $test= new \Blog\repositories\UsersRepository($db);
+        $vw= $test->getUserByUsername('username');
+        if($vw){
+            $valid->isUniq('username','Ce Pseudo est dejà utilisé par un autre utilisateur');
+        }
+
 
         $valid->isEmail('email','Cet email n\'est pas valide');
         if($valid->isValidator()){
@@ -37,6 +40,5 @@ require ('config/Config.php');
         }
 
     }
-
 
 

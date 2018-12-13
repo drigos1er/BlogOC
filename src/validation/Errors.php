@@ -22,19 +22,14 @@ class Errors
         return $this->info[$field];
     }
 
+// METTRE DANS UN REPOSITORY
+
+  /*  public function isUniq($errorMsg){
 
 
-    public function isUniq($field,$db,$table,$errorMsg){
+         return $this->errors[]=$errorMsg;
 
-      $rec=$db->query("SELECT id FROM $table where $field= ?",[$this->getField($field)])->fetch();
-
-      if($rec){
-
-          $this->errors[$field]=$errorMsg;
-      }
-
-
-    }
+    }*/
 
 
 

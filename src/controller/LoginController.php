@@ -1,7 +1,10 @@
 <?php
 
 namespace Blog\controller;
-require ('../BlogOC/config/Config.php');
+
+use Blog\repositories\UsersRepository;
+use Blog\validation;
+use Blog\authentification;
 
 class LoginController extends IndexController
 {
@@ -17,26 +20,37 @@ class LoginController extends IndexController
 
     public function register()
     {
-
-        if(!empty($_POST)){
+       if(!empty($_POST)){
             $errors=array();
             $db=\Config::getCdb();
-            $valid= new \Blog\validation\Errors($_POST);
-            $valid->isUniq('username',$db,'users','Ce Pseudo est dejà utilisé par un autre utilisateur');
+            $valid= new validation\Errors($_POST);
+            /*$test= new \Blog\repositories\UsersRepository($db);
+            $vw= $test->getUserByUsername($_POST['username']);
 
-            $valid->isEmail('email','Cet email n\'est pas valide');
+              $valid->isEmail('email','Cet email n\'est pas valide');
+              var_dump($valid);
+
+
+
+
+            */
+         /* $valid->isUniq('username',$db,'users','Ce Pseudo est dejà utilisé par un autre utilisateur');
+
+          $valid->isEmail('email','Cet email n\'est pas valide');
             if($valid->isValidator()){
                 $valid->isUniq('email',$db,'users','Cet Email  est dejà utilisé par un autre utilisateur');
 
             }
 
-            $valid->isConfirmed('passwd','Les mots de passe ne sont pas identiques');
+            $valid->isConfirmed('passwd','Les mots de passe ne sont pas identiques');*/
 
 
             if($valid->isValidator())
             {
-                $authentification= new \Blog\authentification\Auth($db);
-                $authentification->register($_POST['username'],$_POST['passwd'],$_POST['email']);
+               $insertuser=new UsersRepository($db);
+                $insertuser->register($_POST['username'],$_POST['passwd'],$_POST['email']);
+
+
 
             }
             else
@@ -46,12 +60,12 @@ class LoginController extends IndexController
                 var_dump($errors);
             }
 
+
         }
 
 
         echo $this->twig->render('register.html.twig');
 
 
-    }
 
-}
+}}

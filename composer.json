@@ -10,9 +10,13 @@
     }
   ],
   "require": {
-    "twig/twig": "v2.5.0"
+    "twig/twig": "v2.5.0",
+    "friendsofphp/php-cs-fixer": "v2.13.1"
   },
   "autoload":{
+    "files" : [
+      "core/Connexion.php","config/Config.php"
+    ],
     "psr-4":{
       "Blog\\":"src/"
     }
