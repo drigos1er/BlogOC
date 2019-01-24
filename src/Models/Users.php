@@ -1,14 +1,11 @@
 <?php
-
-
 namespace Blog\Models;
-
 
 class Users
 {
     private $id;
     private $username;
-    private $type;
+    private $usertype;
     private $contact;
     private $email;
     private $passwd;
@@ -34,9 +31,9 @@ class Users
     /**
      * @return mixed
      */
-    public function getType()
+    public function getUsertype()
     {
-        return $this->type;
+        return $this->usertype;
     }
 
     /**

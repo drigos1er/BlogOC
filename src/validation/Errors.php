@@ -1,6 +1,8 @@
 <?php
 namespace Blog\validation;
 
+use Blog\repositories\UsersRepository;
+
 class Errors
 {
 
@@ -13,70 +15,56 @@ class Errors
     }
 
 
-    public function getField($field){
+    public function getField($field)
+    {
 
-        if(!isset($this->info[$field])){
-
+        if (!isset($this->info[$field])) {
             return null ;
         }
         return $this->info[$field];
     }
 
-// METTRE DANS UN REPOSITORY
-
-  /*  public function isUniq($errorMsg){
 
 
-         return $this->errors[]=$errorMsg;
+    public function isUniq($table, $chp, $field, $errorMsg)
+    {
+        $rec= new UsersRepository(\Config::getCdb());
 
-    }*/
+        $result=$rec->getUserById($table, $chp, $this->getField($field));
+
+        if ($result) {
+                $this->errors[$field]=$errorMsg;
+        }
+    }
 
 
 
-    public function isEmail($field,$errorMsg){
 
-        if(!filter_var($this->getField($field),FILTER_VALIDATE_EMAIL)){
 
+    public function isEmail($field, $errorMsg)
+    {
+
+        if (!filter_var($this->getField($field), FILTER_VALIDATE_EMAIL)) {
             $this->errors[$field]=$errorMsg;
         }
-
-
     }
 
 
-    public function isConfirmed($field,$errorMsg){
+    public function isConfirmed($field, $errorMsg)
+    {
 
-        if(empty($this->getField($field))|| $this->getField($field) != $this->getField($field.'_confirm')){
-
+        if (empty($this->getField($field))|| $this->getField($field) != $this->getField($field.'_confirm')) {
             $this->errors[$field]=$errorMsg;
         }
-
-
     }
 
-    public function isValidator(){
-
-
-
-          return empty($this->errors);
-
-
-
+    public function isValidator()
+    {
+         return empty($this->errors);
     }
 
-    public function getErrors(){
-
-
-
+    public function getErrors()
+    {
         return $this->errors;
-
-
-
     }
-
-
-
-
-
-
 }

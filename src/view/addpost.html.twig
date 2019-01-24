@@ -1,0 +1,75 @@
+{% extends "layoutadmin.html.twig" %}
+
+
+{% block head %}
+    <title>Ajout d'Article</title>{% endblock %}
+
+
+{% block content %}
+    <main>
+
+
+
+
+
+
+
+
+        <!-- Contact Start -->
+        <section id="contact" class="section p-0px-b contact-section">
+            <div class="container">
+                <div class="row justify-content-center m-60px-b md-m-40px-b">
+
+
+
+                            <p> {% if session.flash %}
+                            <div class="alert-danger"> {{ session.flash }}</div>
+
+                            {% endif %}</p>
+
+
+                </div>
+
+                <div class="contact-us-box">
+
+                     <div class="col-md-6 ">
+
+
+
+                            <!-- Contact Form-->
+                            <div class="contact-form">
+                                <h2>Ajout d'Article</h2>
+
+
+                                <form method="post" action="">
+
+                                    <div class="form-group">
+                                        <input name="title" placeholder="Titre de l'article" class="form-control" type="text"  required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input name="chapo" placeholder="Court Résumé de l'article" class="form-control" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="content" placeholder="Contenu de l'aricle" rows="3" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="send">
+                                        <button class="m-btn m-btn-theme" type="submit"><i class="fa fa-envelope-o" aria-hidden="true"></i>Enregistrer</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- / -->
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- Container -->
+        </section>
+        <!-- Contact End -->
+
+
+    </main>
+    <!-- Main End -->
+{% endblock content %}

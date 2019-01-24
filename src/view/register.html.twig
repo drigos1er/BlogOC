@@ -21,26 +21,60 @@
                 <div class="row justify-content-center m-60px-b md-m-40px-b">
                     <div class="col-12 col-md-10 col-lg-7">
                         <div class="section-title text-center">
-                            <h2 class="font-alt">INSCRIVEZ VOUS</h2>
+                            <h2 class="font-alt">ACCEDEZ A VOTRE ESPACE
+                                </h2>
+
+                            <p> {% if session.flash %}
+                            <div class="alert-danger"> {{ session.flash }}</div>
+
+                            {% endif %}</p>
 
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-us-box">
-                    <div class="row no-gutters">
-
-                        <div class="col-md-6 ">
-                            <!-- Contact Form -->
+                    <!--  <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <!-- Contact Form
                             <div class="contact-form">
+                                <h2>Connectez-vous ?
+                                </h2>
+                                <form method="post" action="">
+                                    <div class="form-group">
+                                        <input name="username" placeholder="Login" class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="passwd" placeholder="Mot de Passe" class="form-control" type="password">
+                                    </div>
+
+                                    <div class="send">
+                                        <button class="m-btn m-btn-theme"><i class="fa fa-envelope-o" aria-hidden="true"></i>Envoyer</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /
+                        </div> -->
+                     <div class="col-md-6 ">
+
+
+
+                            <!-- Contact Form-->
+                            <div class="contact-form">
+                                <h2>Pas de compte ? Inscrivez vous Ici</h2>
+
 
                                 <form method="post" action="">
 
                                     <div class="form-group">
-                                        <input name="username" placeholder="Username" class="form-control" type="text" required>
+                                        <input name="username" placeholder="Nom d'utilisateur" class="form-control" type="text" required>
                                     </div>
+
                                     <div class="form-group">
                                         <input name="email" placeholder="Email" class="form-control" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="contact" placeholder="Contact" class="form-control" type="text" required>
                                     </div>
                                     <div class="form-group">
                                         <input name="passwd" placeholder="Mot de Passe" class="form-control" type="password" required>
