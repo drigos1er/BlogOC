@@ -18,7 +18,7 @@
             <div class="row justify-content-center m-60px-b md-m-30px-b sm-m-25px-b">
                 <div class="col-12 col-md-10 col-lg-7">
                     <div class="section-title text-center">
-                        <h2 class="font-alt">LISTE DES ARTICLES</h2>
+                        <h2 class="font-alt">TOUS NOS ARTICLES</h2>
                         <p></p>
                     </div>
                 </div>
@@ -32,18 +32,17 @@
 
                             <div class="blog-content">
                                 <div class="post-meta">
-                                    Mise à jour   <span>03.02.2018</span>
+                                    Mise à jour   <span>{{ l.updatedate }}</span>
                                 </div><!-- /post-meta -->
 
-                                <h4><a class="theme-color" href="#">Lorem ipsum dolor sit amet.</a></h4>
+                                <h4><a class="theme-color" href="#">{{ l.title }}</a></h4>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua.
+                                    {{ l.chapo }}
                                 </p>
-                                <a href="#" class="more-btn">Détails <i class="ti-arrow-right"></i></a>
+                                <a href="index.php?id={{ l.id }}" class="more-btn" style="font-weight: bold; font-style: italic">Voi plus... <i class="ti-arrow-right"></i></a>
                             </div><!-- /blog-content -->
-                        </div> <!-- Blog Item -->
-                    </div>
+                        </div> <br><br><!-- Blog Item -->
+                    </div><br><br>
                 {% endfor %}
 
 

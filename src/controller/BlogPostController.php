@@ -17,13 +17,8 @@ class BlogPostController extends IndexController
 
     public function listPost()
     {
-
-
-
         $post = new PostRepository(\Config::getCdb());
         $listpost=$post->getallPost();
-
-
         echo $this->twig->render('blogposts.html.twig',array('listpost'=>$listpost));
     }
 

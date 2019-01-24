@@ -15,7 +15,7 @@ class LoginController extends IndexController
     public function login()
     {
 
-        unset($_SESSION['flash']);
+
 
         if (!empty($_POST)) {
             $userlogin = new UsersRepository(\Config::getCdb());
@@ -37,7 +37,7 @@ class LoginController extends IndexController
                 header("Location:index.php?key=login");
             }
         }
-        echo $this->twig->render('login.html.twig');
+
     }
 
 
