@@ -10,9 +10,15 @@
     }
   ],
   "require": {
-    "twig/twig": "v2.5.0"
+    "twig/twig": "v2.5.0",
+    "friendsofphp/php-cs-fixer": "3.0.x-dev",
+    "squizlabs/php_codesniffer": "3.4.0",
+    "twig/extensions": "v1.5.3"
   },
   "autoload":{
+    "files" : [
+      "core/Connexion.php","config/Config.php"
+    ],
     "psr-4":{
       "Blog\\":"src/"
     }

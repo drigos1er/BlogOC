@@ -1,0 +1,65 @@
+{% extends "layoutadmin.html.twig" %}
+{% block head %}
+    <title>N'GORAN RODRIGUE-Developpeur Web</title>{% endblock %}
+{% block content %}
+    <!-- Main Start -->
+    <main>
+
+
+
+<br><br><br><br><br><br><br><br><br>
+
+
+        <!-- Service Start -->
+        <section id="services" class="section gray-bg services-section">
+
+
+            <div class="container">
+                <p> {% if session.notice %}
+                <div class="alert-success" style="text-align: center"> {{ session.notice }}</div>
+
+                {% endif %}</p>
+                <div class="row justify-content-center m-45px-b md-m-30px-b sm-m-25px-b">
+                    <div class="col-12 col-md-10 col-lg-7">
+                        <div class="section-title text-center">
+                            <div class="col-md-6">
+
+                                <div class="about-left">
+
+                                    <a class="m-btn m-btn-theme" href="index.php?key=addpost">Ajouter un Article <i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div> <!-- col -->
+
+
+                        </div>
+                    </div>
+                </div> <!-- row -->
+
+                <div class="row">
+                    {% for l in lists %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="feature-box-02">
+                                <i class="icon theme-bg ti-ruler-pencil"></i>
+                                <div class="feature-content">
+                                    <h5>Development</h5>
+                                    <p>Les CAS ou SSO.</p>
+                                    <div class="read-more">
+                                        <a href="#" class="more-btn">Détails <i class="ti-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div> <!-- feature-box-02 -->
+                        </div> <!-- col -->
+                    {% endfor %}
+
+
+
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </section>
+        <!-- Service End -->
+
+
+
+    </main>
+    <!-- Main End -->
+{% endblock content %}
